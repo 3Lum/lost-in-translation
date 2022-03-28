@@ -7,6 +7,10 @@
 }
 
 body {
-  background-color: mediumpurple;
+  background-color: rgba(165, 121, 253, 0.836);
+  font-family: 'Coda', cursive;
+  font-size: 1.1rem;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
 }
 /*# sourceMappingURL=style.css.map */
