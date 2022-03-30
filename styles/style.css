@@ -15,6 +15,13 @@ body {
 
 .about {
   color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 1.1rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .navbar {
@@ -31,8 +38,12 @@ body {
   color: white;
 }
 
-.lost {
-  font-size: 3rem;
+.Lost {
+  font-size: 2rem;
+}
+
+.Lost:hover {
+  background-color: #b67eff;
 }
 
 .navbar-links ul {
@@ -54,7 +65,7 @@ body {
 }
 
 .navbar-links li:hover {
-  background-color: red;
+  background-color: #b67eff;
 }
 
 .toggle-button {
@@ -80,12 +91,16 @@ body {
   border-radius: 5px;
 }
 
-.logo-image {
-  width: 100px;
-  height: 100px;
-  border-radius: 0%;
-  overflow: hidden;
-  margin-top: -6px;
+.object-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: white;
+  font-size: 1rem;
+  background-color: #161616;
 }
 
 canvas {
