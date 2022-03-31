@@ -12,46 +12,68 @@
     </head>
     <body>
         <nav class="navbar">
-            <div class="Lost">Lost in Translation</div>
+            <div class="Lost">
+                <li><a href="../index.html">Lost in Translation</a></li>
+            </div>
             
-            <a href="#" class="toggle-button">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            
-            </a>
             <div class="navbar-links">
                 <ul>
-                    <li><a href="../index.html">^</a></li>
+                    <!--<li><a href="../index.html">^</a></li>-->
                     <li><a href="../redhead page/red head.html">-</a></li>
                 </ul>
             </div>
         </nav>
         
+        <div id="overlay" onclick="off()">
+            <div id="text" >Overlay Text</div>
+        </div>
+        <div>
+            <button id="button" onclick="on()">  </button>
+        </div>
+        
+        <script>
+            function on() {
+                document.getElementById("overlay").style.height = "100%";
+                document.getElementById("button").style.padding = "0px";
+            }
+
+            function off() {
+                document.getElementById("overlay").style.height = "0%";
+                document.getElementById("button").style.padding = "1rem";
+            }   
+        </script>
         <script src="three.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
         <script src="OrbitControls.js"></script>
         <script src="GLTFLoader.js"></script>
-
         <script>
-            let controls;
+    
             var scene = new THREE.Scene();
-
-            var camera = new THREE.PerspectiveCamera(50,window.innerWidth / window.innerHeight,0.1,1000);
-            camera.position.set(0,0,25);
+            var wdwH = window.innerHeight;
+            var camera = new THREE.PerspectiveCamera(50,window.innerWidth / wdwH,0.1,1000);
+            camera.position.set(0,0,35);
 
 
             var renderer = new THREE.WebGLRenderer({antialias: true});
             renderer.setClearColor("#000000");
-            renderer.setSize(window.innerWidth,window.innerHeight);
+            renderer.setSize(window.innerWidth,wdwH);
 
             document.body.appendChild(renderer.domElement);
-
+            let controls = new THREE.OrbitControls(camera, renderer.domElement );
             window.addEventListener('resize', () => {
-                renderer.setSize(window.innerWidth,window.innerHeight);
-                camera.aspect = window.innerWidth / window.innerHeight;
+                renderer.setSize(window.innerWidth,wdwH);
+                camera.aspect = window.innerWidth / wdwH;
 
                 camera.updateProjectionMatrix();
+            });
+
+            window.addEventListener('dblclick', () => {
+                if (controls.autoRotate){
+                    controls.autoRotate = false;
+                }
+                else{
+                    controls.autoRotate = true;
+                }
             });
 
             var geometry = new THREE.BoxGeometry(1000, .1,1000);
@@ -67,16 +89,12 @@
             var light2 = new THREE.PointLight(0xFFFFFF, 1, 500);
             light2.position.set(-10,0,-25);
             scene.add(light2);
-
-            controls = new THREE.OrbitControls(camera, renderer.domElement );
-
+            
             var loader = new THREE.GLTFLoader();
-
-            loader.load(
-                'models/test.gltf',
-                function ( gltf ) {
+            let models = ['models/test.gltf'];
+            loader.load(models[0], function ( gltf ) {
                     newmesh = gltf.scene;
-                    newmesh.position.set(0,((window.innerWidth / window.innerHeight) - 9),0);
+                    newmesh.position.set(0,((window.innerWidth / wdwH) - 9),0);
                     scene.add( newmesh );
                     }
             );
@@ -87,6 +105,6 @@
                 renderer.render(scene,camera);
             }
             render(); 
-        </script>
+        </script> 
     </body>
 </html>
