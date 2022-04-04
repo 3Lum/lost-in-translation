@@ -25,21 +25,30 @@
         </nav>
         
         <div id="overlay" onclick="off()">
-            <div id="text" >Overlay Text</div>
+            <div id="text" >open</div>
+            <div id="inputs">
+                <input type="text" id = 'txt1'>
+            </div>
         </div>
         <div>
             <button id="button" onclick="on()">  </button>
         </div>
-        
+
+        <script src="counter.js"></script>
         <script>
+            var counter = 0;
             function on() {
                 document.getElementById("overlay").style.height = "100%";
                 document.getElementById("button").style.padding = "0px";
+                document.getElementById("text").innerHTML = counter;
+                counter = counter + 1;
             }
 
             function off() {
                 document.getElementById("overlay").style.height = "0%";
                 document.getElementById("button").style.padding = "1rem";
+                document.getElementById("text").innerHTML = "open";
+                document.getElementById('text').style.backgroundColor = "$hovercolor";
             }   
         </script>
         <script src="three.min.js"></script>
@@ -89,6 +98,12 @@
             var light2 = new THREE.PointLight(0xFFFFFF, 1, 500);
             light2.position.set(-10,0,-25);
             scene.add(light2);
+            var light3 = new THREE.PointLight(0xFFFFFF, 1, 500);
+            light3.position.set(0,15,0);
+            scene.add(light3);
+            var light4 = new THREE.PointLight(0xFFFFFF, 1, 500);
+            light4.position.set(0,-15,0);
+            scene.add(light4);
             
             var loader = new THREE.GLTFLoader();
             let models = ['models/test.gltf'];

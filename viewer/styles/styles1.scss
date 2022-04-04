@@ -1,0 +1,202 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+body {
+    background-color: black;
+    font-family: 'Coda', cursive;
+    font-size: 2rem;
+    height: 100vh;
+}
+
+//Nav Bar Header
+$hoverColor : rgb(77, 77, 77);
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(22, 22, 22);
+    color: white;
+    text-decoration: none;
+    transition: all 1s;
+}
+
+
+.Lost li a{
+    font-size: 2rem;
+    text-decoration: none;
+    color: white;
+    transition: all 1s;
+}
+.Lost li a:hover {
+    background-color: $hoverColor;
+    color: rgb(22, 22, 22);
+    transition: all 1s;
+}
+
+
+.navbar-links ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.navbar-links li {
+    list-style: none;
+}
+.navbar-links li a {
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+}
+.navbar-links li:hover {
+    background-color: $hoverColor;
+    transition: all 1s;
+}
+.navbar-links li a:hover{
+    color: rgb(22, 22, 22);
+    transition: all 1s;
+}
+//HOME CONTENT
+.about {
+    color: white;
+    padding: 3rem;
+    display: -ms-grid;
+    display: grid;
+    font-size: 3rem;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+
+//VIEWER MAIN BODY CONTENT
+.row {
+    color: white;
+    font-size: 1rem;
+}
+/* Create three unequal columns that floats next to each other */
+.column {
+    float: left;
+    padding: 1rem;
+}
+/* Left and right column */
+.column.sideL {
+    z-index: 2;
+    display: flex;
+    position: fixed;
+    border-radius: 1rem;
+    background-color: transparentize($color: $hoverColor, $amount: 0.7);
+
+    bottom: 0px;
+    width: 15%;
+    height: 95vh;
+    transition: all 1s;
+}
+.column.sideR {
+    z-index: 2;
+    display: flex;
+    position: absolute;
+    border-radius: 1rem;
+    background-color: transparentize($color: $hoverColor, $amount: 0.7);
+    bottom: 0px;
+    right: 0px; 
+}
+/* Middle column */
+.column.middle {
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+}
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#webgl {
+    position: absolute;
+    z-index: -1;
+    height: 90vh;
+    top: 0;
+    left: 0;
+    outline: none;
+}
+
+//RIGHT SIDE TEXT
+#render-nav {
+    position: relative; 
+    align-self: center;
+    justify-self: center;
+    cursor: pointer;
+    font-size: 1rem;
+    //margin-left: em;
+    transition: all 1s;
+}
+//buttons
+.btn {
+    margin: 1em;
+    color: white;
+    cursor: pointer;
+    background-color: transparentize($color: $hoverColor, $amount: 0.93);
+    border-radius: 40px;
+    border-style: none;
+    min-width: 1rem;
+    height:40px;
+    width:30px;
+    transition: all 1s;
+}
+.btn:hover {
+    background-color: $hoverColor;
+    color: black;
+    transition: .25s;
+}
+
+#btnL {
+    position: fixed;
+    bottom: 0px;
+    margin-left: 0;
+    transition: all 1s;
+}
+
+// LEFT SIDE
+.list {
+    text-align: center;
+    overflow: scroll;
+    word-wrap: break-word;
+    //border-style: solid;
+    width: 100%;
+    height: 95%;
+    padding: .5rem;
+    margin: 0;
+    //font-size: .8rem;
+    transition: all 1s;
+}
+#wishlist {
+    top: 0;
+    color: rgb(255, 255, 255);
+}
+#wlist{
+    border-style: solid;
+}
+
+#add-to-wishlist {
+    position: absolute;
+    align-self: center;
+    bottom: 0;
+    left: 20%;
+    transition: left 1s;
+}
+#wishlist-item {
+    padding: 0;
+    box-sizing: border-box;
+    font-size: .8rem;
+    transition: all 1s;
+}
+#-ele{
+    font-size: 1rem;
+    transition: all 1s;
+}
