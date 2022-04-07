@@ -7,8 +7,10 @@ var c = document.getElementById("webgl");
 let scene = new THREE.Scene();
 
 const loader = new GLTFLoader();
-let models = ['./models/test.gltf'];
-loader.load(models[0], function ( gltf ) {
+let models = ['./models/test.gltf', './models/squid.gltf'];
+
+
+loader.load(models[1], function ( gltf ) {
         let newmesh = gltf.scene;
         newmesh.position.set(0,((window.innerWidth / window.innerHeight) - 10),0);
         scene.add( newmesh );
