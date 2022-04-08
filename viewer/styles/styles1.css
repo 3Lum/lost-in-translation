@@ -39,7 +39,7 @@ body {
 }
 
 .Lost li a:hover {
-  background-color: #4d4d4d;
+  background-color: #6b00cf;
   color: #161616;
   -webkit-transition: all 1s;
   transition: all 1s;
@@ -64,7 +64,7 @@ body {
 }
 
 .navbar-links li:hover {
-  background-color: #4d4d4d;
+  background-color: #6b00cf;
   -webkit-transition: all 1s;
   transition: all 1s;
 }
@@ -105,7 +105,7 @@ body {
   display: flex;
   position: fixed;
   border-radius: 1rem;
-  background-color: rgba(77, 77, 77, 0.3);
+  background-color: rgba(107, 0, 207, 0.3);
   bottom: 0px;
   width: 15%;
   height: 95vh;
@@ -120,8 +120,20 @@ body {
   display: flex;
   position: absolute;
   border-radius: 1rem;
-  background-color: rgba(77, 77, 77, 0.3);
+  background-color: rgba(107, 0, 207, 0.3);
   bottom: 0px;
+  right: 0px;
+}
+
+.column.sideS {
+  z-index: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  border-radius: 1rem;
+  color: white;
+  top: calc(100vh-2rem);
   right: 0px;
 }
 
@@ -165,7 +177,7 @@ body {
   margin: 1em;
   color: white;
   cursor: pointer;
-  background-color: rgba(77, 77, 77, 0.07);
+  background-color: rgba(107, 0, 207, 0.07);
   border-radius: 40px;
   border-style: none;
   min-width: 1rem;
@@ -176,7 +188,7 @@ body {
 }
 
 .btn:hover {
-  background-color: #4d4d4d;
+  background-color: #6b00cf;
   color: black;
   -webkit-transition: .25s;
   transition: .25s;
@@ -235,5 +247,10 @@ body {
   font-size: 1rem;
   -webkit-transition: all 1s;
   transition: all 1s;
+}
+
+.okay {
+  color: white;
+  background-color: red;
 }
 /*# sourceMappingURL=styles1.css.map */

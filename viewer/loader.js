@@ -7,15 +7,63 @@ var c = document.getElementById("webgl");
 let scene = new THREE.Scene();
 
 const loader = new GLTFLoader();
-let models = ['./models/test.gltf', './models/squid.gltf'];
 
+let models = ['./models/test.gltf', './models/squid.gltf', './models/nnh.gltf'];
+let meshes = [];
+var modelSelect = 0;
+var mLen = models.length;
+let clicked1 = 0;
 
-loader.load(models[1], function ( gltf ) {
+//LOAD MODELS
+loader.load(models[0], 
+    function ( gltf ) {
         let newmesh = gltf.scene;
         newmesh.position.set(0,((window.innerWidth / window.innerHeight) - 10),0);
-        scene.add( newmesh );
+        scene.add(newmesh);
+        meshes[meshes.length] = newmesh;
         }
 );
+for (let i = 1; i < mLen; i++) {
+    loader.load(models[i], 
+        function ( gltf ) {
+            let newmesh = gltf.scene;
+            newmesh.position.set(0,((window.innerWidth / window.innerHeight) - 10),0);
+            scene.add(newmesh);
+            meshes[meshes.length] = newmesh;
+            newmesh.visible = false;
+            }
+    );
+
+}
+
+//MODEL SWITCHER
+function btnPlus1() {
+    clicked1 += 1;
+    document.getElementById('btn4').innerHTML = clicked1;
+    //console.log(clicked1);
+}
+function btnZero() {
+    clicked1 = 0;
+    document.getElementById('btn4').innerHTML = clicked1;
+    //console.log(clicked1);
+}
+document.getElementById('btn4').addEventListener('click', () => {
+    //console.log("pressed");
+    if (modelSelect < mLen-1){
+        meshes[modelSelect].visible = false;
+        modelSelect+=1;
+        btnPlus1();
+        meshes[modelSelect].visible = true;
+        //console.log(meshes[0]);
+    }
+    else{
+        meshes[modelSelect].visible = false;
+        modelSelect = 0;
+        btnZero();
+        meshes[modelSelect].visible = true;
+    }
+    //console.log(modelSelect);
+});
 
 // Lights
 
@@ -32,14 +80,11 @@ var light4 = new THREE.PointLight(0xFFFFFF, 1, 500);
 light4.position.set(0,-15,0);
 scene.add(light4);
 
-/**
- * Sizes
- */
+//RESIZE
 const sizes = {
     width: window.innerWidth,
     height: window.innerHeight -50
 }
-
 window.addEventListener('resize', () =>
 {
     // Update sizes
@@ -55,7 +100,9 @@ window.addEventListener('resize', () =>
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 })
 
+//PAUSE/PLAY ROTATION
 document.getElementById('btn2').addEventListener('click', () => {
+    console.log("pressed");
     if (controls.autoRotate){
         controls.autoRotate = false;
     }
@@ -63,6 +110,8 @@ document.getElementById('btn2').addEventListener('click', () => {
         controls.autoRotate = true;
     }
 });
+
+//CHANGE MODEL ROTATION
 document.getElementById('btn3').addEventListener('click', () => {
     if (controls.autoRotateSpeed > 0){
         controls.autoRotateSpeed = -2.0;
@@ -72,11 +121,6 @@ document.getElementById('btn3').addEventListener('click', () => {
     }
 });
 
-
-
-/**
- * Camera
- */
 // Base camera
 const camera = new THREE.PerspectiveCamera(50,window.innerWidth / window.innerHeight,0.1,1000);
 camera.position.set(0,0,20);
@@ -99,36 +143,10 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
-/**
- * Animate
- */
-
-/*const clock = new THREE.Clock()
-
-const tick = () =>
-{
-
-    const elapsedTime = clock.getElapsedTime()
-
-    // Update objects
-    sphere.rotation.y = .5 * elapsedTime
-
-    // Update Orbital Controls
-    // controls.update()
-
-    // Render
-    renderer.render(scene, camera)
-
-    // Call tick again on the next frame
-    window.requestAnimationFrame(tick)
-}
-
-tick()*/
-
 var render = function(){
     requestAnimationFrame(render);
-
     controls.update();
     renderer.render(scene,camera);
 }
+
 render(); 

@@ -11,13 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Coda:wght@400;800&display=swap" rel="stylesheet">
 </head>
     <body>
-        <div class="okay">
-            
-        </div>
-
-        <!--
-            MAIN HEADER
-                        -->        
+        <!--MAIN HEADER-->        
             <nav class="navbar">
                 <div class="Lost">
                     <li><a href="../index.html">Lost in Translation</a></li>
@@ -31,9 +25,7 @@
                 </div>
             </nav>
 
-        <!--
-            MAIN SECTION
-                        -->
+        <!--MAIN SECTION-->
             <div class="row">
                 <!--LEFT COLUMN-->
                 <div class="column sideL">
@@ -56,32 +48,24 @@
                 <div class="column sideR" >
                     <button class="btn" id="btn1" onclick="btnReset()">0</button>
                     <button class="btn" id="btn2" onclick="btnToggle2()">+</button>
-                    <button class="btn" id="btn3" onclick="btnToggle3()">></button>
+                    <button class="btn" id="btn3" onclick="btnToggle3()">)</button>
                     <p id="render-nav" onclick="columnTgl()">controls</p>
+                </div>
+                <!--SWITCHER COLUMN-->
+                <div class="column sideS" >
+                    <button class="btn" id="btn4">0</button>
                 </div>
             </div>
 
-        <!--
-            SCRIPTS
-                    -->
+        <!--SCRIPTS-->
             <!--COLUMNS-->
             <script>
                 //RESET POSITION
                 function btnReset(){
                     document.getElementById('btn1').innerHTML = "0";
                 }
-
-                let clicked1 = false;
-                function btnToggle1() {
-                    if(clicked1){
-                        document.getElementById('btn1').innerHTML = "0";
-                        clicked1 = false;
-                    }
-                    else {
-                        document.getElementById('btn1').innerHTML = "-";
-                        clicked1 = true;
-                    }
-                }
+                //MODEL SWITCHER
+                
 
                 //PAUSE/PLAY ROTATION
                 let clicked2 = false;
@@ -100,11 +84,11 @@
                 let clicked3 = false;
                 function btnToggle3() {
                     if(clicked3){
-                        document.getElementById('btn3').innerHTML = ">";
+                        document.getElementById('btn3').innerHTML = ")";
                         clicked3 = false;
                     }
                     else {
-                        document.getElementById('btn3').innerHTML = "<";
+                        document.getElementById('btn3').innerHTML = "(";
                         clicked3 = true;
                     }
                 }
@@ -181,8 +165,10 @@
                     }
                 }
             </script>
+
             <!--THREEjs Render-->
             <script type="module" src="/viewer/loader.js"></script>
+            
             <!--ADDING TEXT-->
             <script>
                 var addToWishList = document.querySelector('#add-to-wishlist');

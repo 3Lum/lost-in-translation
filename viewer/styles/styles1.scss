@@ -13,7 +13,7 @@ body {
 }
 
 //Nav Bar Header
-$hoverColor : rgb(77, 77, 77);
+$hoverColor : rgb(107, 0, 207);
 
 .navbar {
     display: flex;
@@ -102,6 +102,16 @@ $hoverColor : rgb(77, 77, 77);
     border-radius: 1rem;
     background-color: transparentize($color: $hoverColor, $amount: 0.7);
     bottom: 0px;
+    right: 0px; 
+}
+.column.sideS {
+    z-index: 2;
+    display: flex;
+    position: absolute;
+    border-radius: 1rem;
+    color: white;
+    //background-color: transparentize($color: $hoverColor, $amount: 0.7);
+    top: calc(100vh-2rem);
     right: 0px; 
 }
 /* Middle column */
