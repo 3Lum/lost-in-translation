@@ -1,6 +1,6 @@
-import * as THREE from './viewer/js/three.module.js';
-import { OrbitControls } from './viewer/js/OrbitControls.js';
-import {GLTFLoader} from './viewer/js/GLTFLoader.js';
+import * as THREE from '/viewer/js/three.module.js';
+import { OrbitControls } from '/viewer/js/OrbitControls.js';
+import {GLTFLoader} from '/viewer/js/GLTFLoader.js';
 
 var c = document.getElementById("webgl");
 
