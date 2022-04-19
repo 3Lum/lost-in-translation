@@ -1,6 +1,6 @@
-import * as THREE from './viewer/js/three.module.js';
-import { OrbitControls } from './viewer/js/OrbitControls.js';
-import {GLTFLoader} from './viewer/js/GLTFLoader.js';
+import * as THREE from './js/three.module.js';
+import { OrbitControls } from './js/OrbitControls.js';
+import {GLTFLoader} from './js/GLTFLoader.js';
 
 var c = document.getElementById("webgl");
 
@@ -8,7 +8,7 @@ let scene = new THREE.Scene();
 
 const loader = new GLTFLoader();
 
-let models = ['./models/nnh.gltf', './models/squid.gltf', './models/nnh.gltf'];
+let models = ['./models/test.gltf', './models/squid.gltf', './models/nnh.gltf'];
 let meshes = [];
 var modelSelect = 0;
 var mLen = models.length;
