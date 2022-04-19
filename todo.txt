@@ -1,5 +1,0 @@
-file clean up
-    naming
-    color theme
-dynamic text for home page
-user input field
