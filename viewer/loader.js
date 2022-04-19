@@ -99,7 +99,7 @@ window.addEventListener('resize', () =>
     renderer.setSize(sizes.width, sizes.height)
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 })
-
+//controls.autoRotate = false;
 //PAUSE/PLAY ROTATION
 document.getElementById('btn2').addEventListener('click', () => {
     console.log("pressed");

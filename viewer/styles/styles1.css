@@ -177,7 +177,7 @@ body {
   margin: 1em;
   color: white;
   cursor: pointer;
-  background-color: rgba(107, 0, 207, 0.07);
+  background-color: rgba(107, 0, 207, 0.2);
   border-radius: 40px;
   border-style: none;
   min-width: 1rem;
@@ -221,6 +221,7 @@ body {
 
 #wlist {
   border-style: solid;
+  margin-bottom: 1em;
 }
 
 #add-to-wishlist {
@@ -252,5 +253,12 @@ body {
 .okay {
   color: white;
   background-color: red;
+}
+
+.images {
+  position: absolute;
+  right: 10%;
+  bottom: 5%;
+  z-index: 3;
 }
 /*# sourceMappingURL=styles1.css.map */

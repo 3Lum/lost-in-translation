@@ -46,8 +46,9 @@
 
                 <!--RIGHT COLUMN-->
                 <div class="column sideR" >
+                    
                     <button class="btn" id="btn1" onclick="btnReset()">0</button>
-                    <button class="btn" id="btn2" onclick="btnToggle2()">+</button>
+                    <button class="btn" id="btn2" onclick="btnToggle2()">-</button>
                     <button class="btn" id="btn3" onclick="btnToggle3()">)</button>
                     <p id="render-nav" onclick="columnTgl()">controls</p>
                 </div>
@@ -55,6 +56,7 @@
                 <div class="column sideS" >
                     <button class="btn" id="btn4">0</button>
                 </div>
+                <!--INSTRUCTIONS-->
             </div>
 
         <!--SCRIPTS-->
@@ -71,11 +73,11 @@
                 let clicked2 = false;
                 function btnToggle2() {
                     if(clicked2){
-                        document.getElementById('btn2').innerHTML = "+";
+                        document.getElementById('btn2').innerHTML = "-";
                         clicked2 = false;
                     }
                     else {
-                        document.getElementById('btn2').innerHTML = "-";
+                        document.getElementById('btn2').innerHTML = "+";
                         clicked2 = true;
                     }
                 }
@@ -101,9 +103,9 @@
                         document.getElementById('btn1').style.height = "40px";
                         document.getElementById('btn2').style.height = "40px";
                         document.getElementById('btn3').style.height = "40px";
-                        document.getElementById('btn1').style.width = "30px";
-                        document.getElementById('btn2').style.width = "30px";
-                        document.getElementById('btn3').style.width = "30px";
+                        document.getElementById('btn1').style.width = "25px";
+                        document.getElementById('btn2').style.width = "25px";
+                        document.getElementById('btn3').style.width = "25px";
                         clickedOver = false;
                     }
                     else {
@@ -111,9 +113,9 @@
                         document.getElementById('btn1').style.height = "120px";
                         document.getElementById('btn2').style.height = "120px";
                         document.getElementById('btn3').style.height = "120px";
-                        document.getElementById('btn1').style.width = "90px";
-                        document.getElementById('btn2').style.width = "90px";
-                        document.getElementById('btn3').style.width = "90px";
+                        document.getElementById('btn1').style.width = "80px";
+                        document.getElementById('btn2').style.width = "80px";
+                        document.getElementById('btn3').style.width = "80px";
                         clickedOver = true;
                     }
                 }
@@ -189,7 +191,15 @@
                     // Clear input
                     wishlistItem.value = '';
 
+                    localStorage.setItem('wishlistItems', wishlist.innerHTML);
+
                 }, false);
+                var saved = localStorage.getItem('wishlistItems');
+
+                // If there are any saved items, update our list
+                if (saved) {
+                    wishlist.innerHTML = saved;
+                }
             </script>
     </body>
 </html>
