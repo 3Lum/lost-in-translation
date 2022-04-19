@@ -1,6 +1,6 @@
-import * as THREE from 'lost-in-translation/js/three.module.js';
-import {OrbitControls} from 'lost-in-translation/js/OrbitControls.js';
-import {GLTFLoader} from 'lost-in-translation/js/GLTFLoader.js';
+import * as THREE from './js/three.module.js';
+import {OrbitControls} from './js/OrbitControls.js';
+import {GLTFLoader} from './js/GLTFLoader.js';
 
 var c = document.getElementById("webgl");
 
