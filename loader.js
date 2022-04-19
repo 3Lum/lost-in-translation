@@ -1,6 +1,6 @@
-import * as THREE from 'https://github.com/3Lum/lost-in-translation/blob/25496257985a3e82cd6f3c4ddd694da7c0b1f848/js/three.module.js';
-import {OrbitControls} from 'https://github.com/3Lum/lost-in-translation/blob/25496257985a3e82cd6f3c4ddd694da7c0b1f848/js/OrbitControls.js';
-import {GLTFLoader} from 'https://github.com/3Lum/lost-in-translation/blob/25496257985a3e82cd6f3c4ddd694da7c0b1f848/js/GLTFLoader.js';
+import * as THREE from 'lost-in-translation/js/three.module.js';
+import {OrbitControls} from 'lost-in-translation/js/OrbitControls.js';
+import {GLTFLoader} from 'lost-in-translation/js/GLTFLoader.js';
 
 var c = document.getElementById("webgl");
 

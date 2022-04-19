@@ -6,7 +6,7 @@ import {
 	TOUCH,
 	Vector2,
 	Vector3
-} from 'https://github.com/3Lum/lost-in-translation/blob/25496257985a3e82cd6f3c4ddd694da7c0b1f848/js/three.module.js';
+} from 'lost-in-translation/three.module.js';
 
 // This set of controls performs orbiting, dollying (zooming), and panning.
 // Unlike TrackballControls, it maintains the "up" direction object.up (+Y by default).
