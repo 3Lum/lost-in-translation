@@ -11,6 +11,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Coda:wght@400;800&display=swap" rel="stylesheet">
 </head>
     <body>
+        <!--OVERLAY IMAGE -->
+        <div class="over">
+            <img src="viewer-overlay1.png" alt="text" id="viewerOverlay" onclick="btnOVERLAY()">
+        </div>
         <!--MAIN HEADER-->        
             <nav class="navbar">
                 <div class="Lost">
@@ -19,8 +23,9 @@
                 
                 <div class="navbar-links">
                     <ul>
-                        <!-- <li><a href="index.html">^</a></li> -->
-                        <li><a href="#">-</a></li>
+                        <!-- <li><a href="index.html">^</a></li> 
+                        <li><a href="#">-</a></li>-->
+                        <button class="btn" id="btnX" onclick="btnOVERLAY()" style="margin: 0; padding: 0;">x</button>
                     </ul>
                 </div>
             </nav>
@@ -54,11 +59,11 @@
                 </div>
                 <!--SWITCHER COLUMN-->
                 <div class="column sideS" >
-                    <button class="btn" id="btn4">0</button>
+                    <button class="btn" id="btn4">{</button>
                 </div>
                 <!--INSTRUCTIONS-->
             </div>
-
+            
         <!--SCRIPTS-->
             <!--COLUMNS-->
             <script>
@@ -66,7 +71,18 @@
                 function btnReset(){
                     document.getElementById('btn1').innerHTML = "0";
                 }
-                //MODEL SWITCHER
+                //overlay toggle
+                let clickedX = false;
+                function btnOVERLAY() {
+                    if(clickedX){
+                        document.getElementById('viewerOverlay').style.display = "block";
+                        clickedX = false;
+                    }
+                    else {
+                        document.getElementById('viewerOverlay').style.display = "none";
+                        clickedX = true;
+                    }
+                }
                 
 
                 //PAUSE/PLAY ROTATION
@@ -171,7 +187,7 @@
             <!--THREEjs Render-->
             <script type="module" src="loader.js"></script>
             
-            <!--ADDING TEXT-->
+            <!--ADDING TEXT
             <script>
                 var addToWishList = document.querySelector('#add-to-wishlist');
                 var wishlistItem = document.querySelector('#wishlist-item');
@@ -200,6 +216,6 @@
                 if (saved) {
                     wishlist.innerHTML = saved;
                 }
-            </script>
+            </script>-->
     </body>
 </html>

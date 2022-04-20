@@ -13,6 +13,11 @@ body {
   height: 100vh;
 }
 
+.over {
+  position: fixed;
+  z-index: 4;
+}
+
 .navbar {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -202,6 +207,10 @@ body {
   transition: all 1s;
 }
 
+#viewerOverlay {
+  display: block;
+}
+
 .list {
   text-align: center;
   overflow: scroll;
@@ -260,5 +269,13 @@ body {
   right: 10%;
   bottom: 5%;
   z-index: 3;
+}
+
+.images:hover {
+  background-color: #6b00cf;
+  color: white;
+  opacity: 50%;
+  -webkit-transition: all 1s;
+  transition: all 1s;
 }
 /*# sourceMappingURL=styles1.css.map */
