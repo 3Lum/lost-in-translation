@@ -8,11 +8,20 @@ let scene = new THREE.Scene();
 
 const loader = new GLTFLoader();
 
-let models = ['./models/test.gltf', './models/squid.gltf', './models/nnh.gltf'];
+let models = ['./models/test.gltf', './models/bny1.gltf',/*'./models/1.2.gltf'*/,'./models/nnn.gltf'];
 let meshes = [];
 var modelSelect = 0;
 var mLen = models.length;
 let clicked1 = 0;
+var clickedC = ['&','~','*',/*'%'*/];
+// Base camera
+const camera = new THREE.PerspectiveCamera(50,window.innerWidth / window.innerHeight,0.1,1000);
+camera.position.set(5,15,20);
+scene.add(camera)
+
+// Controls
+const controls = new OrbitControls(camera, c)
+controls.enableDamping = true
 
 //LOAD MODELS
 loader.load(models[0], 
@@ -39,12 +48,12 @@ for (let i = 1; i < mLen; i++) {
 //MODEL SWITCHER
 function btnPlus1() {
     clicked1 += 1;
-    document.getElementById('btn4').innerHTML = clicked1;
+    document.getElementById('btn4').innerHTML = clickedC[clicked1];
     //console.log(clicked1);
 }
 function btnZero() {
     clicked1 = 0;
-    document.getElementById('btn4').innerHTML = clicked1;
+    document.getElementById('btn4').innerHTML = clickedC[clicked1];
     //console.log(clicked1);
 }
 document.getElementById('btn4').addEventListener('click', () => {
@@ -65,18 +74,44 @@ document.getElementById('btn4').addEventListener('click', () => {
     //console.log(modelSelect);
 });
 
-// Lights
+//ADDING TEXT
+var addToWishList = document.querySelector('#add-to-wishlist');
+var wishlistItem = document.querySelector('#wishlist-item');
+var wishlist = document.querySelector('#wishlist');
+addToWishList.addEventListener('submit', function (event) {
 
-var light = new THREE.PointLight(0xFFFFFF, 1, 500);
+    // Don't submit the form
+    event.preventDefault();
+
+    // Ignore it if the wishlist item is empty
+    if (wishlistItem.value.length < 1) return;
+
+    // Add item to wishlist
+    wishlist.innerHTML += '<li id= "wlist">' + clickedC[clicked1] + '. '+ wishlistItem.value + '</li>';
+
+    // Clear input
+    wishlistItem.value = '';
+
+    localStorage.setItem('wishlistItems', wishlist.innerHTML);
+
+}, false);
+var saved = localStorage.getItem('wishlistItems');
+// If there are any saved items, update our list
+if (saved) {
+    wishlist.innerHTML = saved;
+}
+
+// Lights
+var light = new THREE.PointLight(0xFFFFFF, 1, 1000);
 light.position.set(10,0,25);
 scene.add(light);
-var light2 = new THREE.PointLight(0xFFFFFF, 1, 500);
+var light2 = new THREE.PointLight(0xFFFFFF, 1, 1000);
 light2.position.set(-10,0,-25);
 scene.add(light2);
-var light3 = new THREE.PointLight(0xFFFFFF, 1, 500);
+var light3 = new THREE.PointLight(0xFFFFFF, 1, 1000);
 light3.position.set(0,15,0);
 scene.add(light3);
-var light4 = new THREE.PointLight(0xFFFFFF, 1, 500);
+var light4 = new THREE.PointLight(0xFFFFFF, 1, 1000);
 light4.position.set(0,-15,0);
 scene.add(light4);
 
@@ -99,7 +134,7 @@ window.addEventListener('resize', () =>
     renderer.setSize(sizes.width, sizes.height)
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 })
-//controls.autoRotate = false;
+
 //PAUSE/PLAY ROTATION
 document.getElementById('btn2').addEventListener('click', () => {
     console.log("pressed");
@@ -120,15 +155,6 @@ document.getElementById('btn3').addEventListener('click', () => {
         controls.autoRotateSpeed = 2.0;
     }
 });
-
-// Base camera
-const camera = new THREE.PerspectiveCamera(50,window.innerWidth / window.innerHeight,0.1,1000);
-camera.position.set(0,0,20);
-scene.add(camera)
-
-// Controls
-const controls = new OrbitControls(camera, c)
-controls.enableDamping = true
 
 document.getElementById('btn1').addEventListener("click", () =>{
     controls.reset();
