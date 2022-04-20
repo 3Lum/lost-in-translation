@@ -8,7 +8,7 @@ let scene = new THREE.Scene();
 
 const loader = new GLTFLoader();
 
-let models = ['./models/test.gltf', './models/bny1.gltf',/*'./models/1.2.gltf'*/,'./models/nnn.gltf'];
+let models = ['./models/test.gltf', './models/bny1.gltf',/*'./models/1.2.gltf'*/'./models/nnn.gltf'];
 let meshes = [];
 var modelSelect = 0;
 var mLen = models.length;
